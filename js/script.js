@@ -24,7 +24,7 @@ var getMovie = function() {
             document.getElementById("rating").innerHTML = data.Rated;
             document.getElementById("actors").innerHTML = data.Actors;
             document.getElementById("poster").innerHTML = "<img src='" + data.Poster + "' />";
-        
+            document.getElementById("plot").innerHTML = data.Plot;
         
     })
   
