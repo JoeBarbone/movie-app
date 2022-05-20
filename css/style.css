@@ -1,0 +1,44 @@
+.container {
+    xborder: 10px solid red;
+    height: 100vh;
+}
+
+.input-window {
+    xborder: 1px solid blue;
+    xbackground-color: blue;
+    xheight: 500px;
+}
+
+.input-panel {
+    width: 100%;
+    border: 2px solid black;
+    padding: 50px;
+    box-shadow: 3px 4px 5px grey;
+}
+
+.input-panel input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+.input-panel button {
+    margin-top: 50px;
+}
+
+.card img {
+    height: 100%;
+}
+
+.card {
+    box-shadow: 3px 4px 5px grey;
+}
+
+.movie-info {
+    xborder: 1px solid orange;
+    xbackground-color: orange;
+    xheight: 500px;
+    
+}
