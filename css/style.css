@@ -10,7 +10,6 @@
 }
 
 .input-panel {
-    width: 100%;
     border: 2px solid black;
     padding: 50px;
     box-shadow: 3px 4px 5px grey;
@@ -26,6 +25,7 @@
 
 .input-panel button {
     margin-top: 50px;
+    width: 100%;
 }
 
 .card img {

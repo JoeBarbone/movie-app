@@ -1,4 +1,13 @@
-var btnSubmitEl = document.querySelector("#submit");
+var formSubmitEl = document.querySelector("#input-form");
+
+
+var formHandler = function(event) {
+    event.preventDefault();
+
+    getMovie();
+}
+
+
 
 var getMovie = function() {
     var requestUrl = 'https://www.omdbapi.com/?apikey=94f7ec29&t='
@@ -7,11 +16,23 @@ var getMovie = function() {
 
 
     fetch(requestUrl)
-    .then(function(response) {
+        .then(function(response) {
+        
+        
         return response.json();
+        
     })
+
     .then(function(data) {
             console.log(data);
+            //console.log("data.error: " + data.Response);
+            if (data.Response === "False") {
+                document.getElementById("movie-info").textContent = mt + " not found";
+            } else {
+                
+            
+
+            
             
             document.getElementById("title").innerHTML = data.Title;
             document.getElementById("year").innerHTML = data.Year;
@@ -24,14 +45,12 @@ var getMovie = function() {
 
             document.getElementById("movie-title").value = "";
             document.getElementById("movie-title").focus();
+            }
 
-        
     })
   
 
 }
 
 
-
-
-btnSubmitEl.addEventListener("click", getMovie);
+formSubmitEl.addEventListener("submit", formHandler);
