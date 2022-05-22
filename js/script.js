@@ -1,7 +1,7 @@
 var btnSubmitEl = document.querySelector("#submit");
 
 var getMovie = function() {
-    var requestUrl = 'http://www.omdbapi.com/?apikey=94f7ec29&t='
+    var requestUrl = 'https://www.omdbapi.com/?apikey=94f7ec29&t='
     var mt = document.getElementById("movie-title").value;
     requestUrl = requestUrl + mt;
 
