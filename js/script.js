@@ -26,9 +26,9 @@ var getMovie = function() {
     .then(function(data) {
             console.log(data);
             //console.log("data.error: " + data.Response);
-            if (data.Response === "False") {
-                document.getElementById("movie-info").textContent = mt + " not found";
-            } else {
+            // if (data.Response === "False") {
+                // document.getElementById("movie-info").textContent = mt + " not found";
+            // } else {
                 
             
 
@@ -45,7 +45,7 @@ var getMovie = function() {
 
             document.getElementById("movie-title").value = "";
             document.getElementById("movie-title").focus();
-            }
+            // }
 
     })
   
