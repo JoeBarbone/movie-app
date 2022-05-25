@@ -1,6 +1,6 @@
 .container {
     xborder: 10px solid red;
-    height: 100vh;
+    xheight: 100vh;
 }
 
 .input-window {
@@ -13,6 +13,7 @@
     border: 2px solid black;
     padding: 50px;
     box-shadow: 3px 4px 5px grey;
+    width: 100%;
 }
 
 .input-panel input {
@@ -33,12 +34,25 @@
 }
 
 .card {
+    display: none;
     box-shadow: 3px 4px 5px grey;
 }
 
-.movie-info {
+/* .movie-info {
+    
     xborder: 1px solid orange;
     xbackground-color: orange;
     xheight: 500px;
     
+} */
+
+.ratings {
+    display: none;
+}
+
+.user-ratings {
+    border: 1px solid black;
+    padding: 10px;
+    font-weight: bold;
+    width: 100%;
 }
