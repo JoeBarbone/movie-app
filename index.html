@@ -4,84 +4,132 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>omDB Movie App</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>The Movie Hub</title>
 </head>
 <body>
-    <div style="border: 1px solid black;" class="container d-flex align-items-start xjustify-content-between">
-        
-        <div class="row d-flex flex-column align-items-center col-6 input-window m-3">
+    <div>
+     
+        <!-- <div class="xrow xd-flex xflex-column">
+            <header class="column xcol-sm-12 xd-flex xjustify-content-between xalign-items-center">
+                <p>The Movie Hub header info here, maybe logo and/or menu if we have/need a menu</p>
+                <img src="tmh-long-logo.JPG" alt="the movie hub logo">
+                <nav>
+                    <input type="text" placeholder="enter movie title">
+                    <button>search</button>
+                </nav>
+
+            </header>
+            <div class="film-reel"></div>
+            <div class="column main-content xd-flex">
+                <div class="left-content column xcol-sm-12 xcol-md-3">
+                    <p>ratings info here</p>
+                </div>
             
-            <h1 class="pt-3">omDB Movie App</h1>
-
-            <div class="d-flex flex-column input-panel my-auto">
-                <form id="input-form">
-                    <input class="my-auto" id="movie-title" type="text" placeholder="enter movie title">
-                    <button class="btn btn-danger" type="submit">submit</button>
-                </form>
+            
+                <div class="column xcenter-content xcol xcol-sm-12 xcol-md-6">
+                    <p>main movie info here</p>
+                    <p>poster</p>
+                    <p>title</p>
+                    <p>year released</p>
+                    <p>rating</p>
+                    <p>actors</p>
+                    <p>plot</p>
+                </div>
+            
+        
+                <div id="viewing-options" class="column xright-content xcol xcol-sm-12 xcol-md-3">
+                    <h2>Viewing Options</h2>
+                    
+                </div>
             </div>
+            <footer class="column xcol-sm-12">
+                <p>&copy;2022 The Movie Hub | Susan Pero Raffa Prezia James O'Brien and Joseph Barbone</p>
+            </footer>
+        </div> -->
 
-            <div class="d-flex flex-column input-panel">
-                <h1>Ratings</h1>
-
-                <div id="ratings" class="ratings input-panel">
-                    <!-- remove class and id below if okay -->
-                    <div id="xratings" class="xinput-panel xratings">
-
-
-                    </div>
+        <div>
+            <header class="columns is-align-items-center">
+                
+                <div class="column is-4">
+                    <img src="images/tmh-long-logo.JPG" alt="the movie hub logo">
                 </div>
                 
-            </div>
+                <div class="column is-4">
+                    <p>Don't know what to watch? Try out The Movie Hub! We will tell you information about the movie, demographic ratings and even show you a listing of available streaming services!</p>
+                </div>
+                <nav class="column is-4 is-flex is-justify-content-right">
+                    <form id="input-form" class="is-flex">
+                        <input id="movie-title" class="my-auto" type="text" placeholder="enter movie title">
+                        <button id="submit" type="submit">search</button>
+                    </form>
+                </nav>
 
+            </header>
 
-            <div class="d-flex flex-column input-panel">
-                <h1>Nerd Ratings</h1>
+            <div class="film-reel"></div>
+            
+            <div class="columns my-5 main-content is-flex column xcolumn-12 mx-auto">
 
-                <div id="demo-ratings" class="ratings">
+                <div class="column left-content">
+
+                    <!-- displays movie title, IMDBID title and three critic ratings -->
+                    <div id="ratings" class="movie-info pl-3">
+                        
+                    </div>
+                
                     
-                    <div class="d-flex justify-content-between user-ratings input-panel">
+                    <!-- was set to user-ratings to bold text in "table" -->
+                    <!-- bottom left-content box that displays demographics ratings -->
+                    <div id="demo-ratings-header"></div>
+                    <div id="demo-ratings" class="demo-ratings is-flex is-justify-content-space-between has-text-centered xm-5">
+                        
                         <div id="age-group">
 
                         </div>
-                        
+
                         <div id="user-rating">
 
                         </div>
 
-                        <div id="votes" class="text-right">
-
+                        <div id="votes" class="is-flex has-text-right">
+                    
                         </div>
                     </div>
-
                 </div>
+            
+            
+                <div class="column center-content xis-flex xis-align-items-center">
+                    <!-- <div class="movie-info"></div> this isn't used, check first before deleting-->
 
-                
-            </div>
-
-        </div>
-
-        <div class="row d-flex flex-column col-6 my-auto mt-5 movie-info">
-            <div id="display-card" class="card">
-                <div id="poster" class="text-center"></div>
-                
-                <div id="movie-info" class="p-3">Movie Info</div>
-
-                <div class="card-body">
-                    <h5><p class="card-title px-3" id="title"></p></h5>
-                    <p class="card-text px-3" id="year"></p>
-                    <p class="card-text px-3" id="rating"></p>
-                    <p class="card-text px-3" id="actors"></p>
-                    <p class="card-text px-3" id="plot"></p>
+                    <!-- displays poster and movie info underneath poster -->
+                    <div id="display-card" class="xis-flex xis-align-items-start">
+                        <div id="poster" class="has-text-centered"></div>
+                        <div id="movie-info" class="movie-info"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            
         
+                <div id="viewing-options" class="column right-content">
+                    <p class="title is-1">Viewing Options</p>
+                    
+                </div>
+            </div>
+            <div class="film-reel"></div>
+            <footer class="column">
+                <p>&copy;2022 The Movie Hub | Susan Pero, Raffa Prezia, James O'Brien, and Joseph Barbone</p>
+            </footer>
+        </div>
+    
     </div>
-
-
     <script src="js/script.js"></script>
 </body>
 </html>

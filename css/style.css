@@ -1,58 +1,109 @@
-.container {
-    xborder: 10px solid red;
-    xheight: 100vh;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Ubuntu;
 }
 
-.input-window {
-    xborder: 1px solid blue;
-    xbackground-color: blue;
-    xheight: 500px;
+.main-content {
+    xheight: 715px;
 }
 
-.input-panel {
-    border: 2px solid black;
-    padding: 50px;
-    box-shadow: 3px 4px 5px grey;
-    width: 100%;
+header {
+    background-color: red;
+    padding: 20px;
 }
 
-.input-panel input {
-    width: 100%;
+header p {
+
+    font-size: 1.8rem;
+    color: yellow;
+}
+
+header img {
+    height: 200px;
+    xwidth: 200px;
+    xborder: 2px solid white;
+    margin: 0 20px;
+}
+
+header nav form input {
+    padding: 15px 20px;
+    border-radius: 15px 0 0 15px;
     border: none;
+}
+
+header nav form button {
+    padding: 15px 25px;
+    border-radius: 0 15px 15px 0;
+    border: none;
+    font-weight: bold;
+    color: red;
+}
+
+header nav form input, header nav form button {
+    font-size: 1.4rem;
+    letter-spacing: .3rem;
+}
+
+header nav form input:focus {
     outline: none;
-    padding: 10px;
-    border-bottom: 2px solid black;
+    border: none;
 }
 
-.input-panel button {
-    margin-top: 50px;
-    width: 100%;
+.film-reel {
+    background-image: url("/images/red-film-strip.png");
+    background-position: top;
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100px;
+    xborder: 1px solid black;
 }
 
-.card img {
-    height: 100%;
+#display-card {
+    xborder: 1px solid red;
+    xbox-shadow: -1px 3px 4px 5px grey;
 }
 
-.card {
-    display: none;
-    box-shadow: 3px 4px 5px grey;
+.movie-info {
+    /* using this class on both for the font setting, the text under the poster and the left panel */
+    font-size: 1.3rem;
+    xbox-shadow: -1px 3px 4px 5px grey;
+    xpadding: 10px;
 }
 
-/* .movie-info {
-    
-    xborder: 1px solid orange;
-    xbackground-color: orange;
-    xheight: 500px;
-    
-} */
-
-.ratings {
-    display: none;
+footer {
+    background-color: red;
+    color: white;
+    padding-top: 10px;
+    text-align: right;
 }
 
-.user-ratings {
-    border: 1px solid black;
+.left-content, .center-content, .right-content {
+    xborder: 1px solid black;
+
+    xbackground-color: yellow;
+}
+
+.left-content, .center-content {
+    border-right: 5px solid red;
+}
+
+ .demo-ratings {
+    xborder: 1px solid black;
     padding: 10px;
     font-weight: bold;
     width: 100%;
 }
+
+.title, .subtitle {
+    color: red;
+}
+
+
+@media screen and (max-width: 576px) {
+
+    .main-content {
+        flex-direction: column;
+    }
+}
+
