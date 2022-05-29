@@ -293,12 +293,34 @@ var getViewingOptions = function(imdbid) {
     
             console.log(format);
             if (format === "HD") {
-                // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-                var viewingOptionsEl = document.createElement("p");
-    
-                viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Web Link: " + web + "<br /><br />";
-    
-                viewingOptionsContainerEl.appendChild(viewingOptionsEl);
+                
+                switch (type) {
+                    case "rent":
+                        
+                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
+                        var viewingOptionsEl = document.createElement("p");
+                        viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Type: " + type + "<br />" + "Web Link: " + web + "<br /><br />";
+                        viewingOptionsContainerEl.appendChild(viewingOptionsEl);
+                        break;
+
+                    case "buy":
+                    
+                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
+                        var viewingOptionsEl = document.createElement("p");
+                        viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Type: " + type + "<br />" + "Web Link: " + web + "<br /><br />";
+                        viewingOptionsContainerEl.appendChild(viewingOptionsEl);
+                        break;
+
+                    case "sub":
+                
+                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
+                        var viewingOptionsEl = document.createElement("p");
+                        viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Type: " + type + "<br />" + "Web Link: " + web + "<br /><br />";
+                        viewingOptionsContainerEl.appendChild(viewingOptionsEl);
+                        break;
+
+                    
+                }
             }
              
         }
