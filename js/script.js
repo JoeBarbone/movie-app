@@ -39,6 +39,7 @@ var viewingOptionsContainerEl = document.querySelector("#viewing-options");
 
 
 
+
 var formHandler = function(event) {
     event.preventDefault();
 
@@ -147,7 +148,8 @@ var getRatings = function(imdbid) {
 
             // set for testing
             var title = "Killer Klowns From Outer Space";
-            var imdbid = "tt012968";
+            // var imdbid = "tt012968";
+            var imdbid = "tt10954652";
             var imdbrating = "6.8";
             var rt = "68.9";
             var tmdb = "6.8";
@@ -247,16 +249,92 @@ var getDemographicRatings = function(imdbid) {
             
             // demoRatingsEl.innerHTML = ;
 
-            for (var i=0; i < data.ratings.length; i++) {
+            // commented out for testing
+            //for (var i=0; i < data.ratings.length; i++) {
 
             //var imdbid = data.imDbId;
-            console.log("Rating: " + data.ratings[i].rating + "\n" + "Percent of Votes: " + data.ratings[i].percent + "\n" + "Votes: " + data.ratings[i].votes);
+            //console.log("Rating: " + data.ratings[i].rating + "\n" + "Percent of Votes: " + data.ratings[i].percent + "\n" + "Votes: " + data.ratings[i].votes);
 
-            }
+            //}
             
 
         //})
+        getViewingOptions(imdbid);
 }
+
+
+
+var getViewingOptions = function(imdbid) {
+
+    var viewingOptionsHeaderEl = document.createElement("div");
+    
+    viewingOptionsHeaderEl.innerHTML = "<p class='title is-1'>Viewing Options</p>";
+
+    fetch("https://api.watchmode.com/v1/title/" + imdbid + "/sources/?apiKey=QKlb5uqJqrs4TSLGQHRsUwAMgKndbhqCOUaIyCW0")
+        .then(function(response) {
+        
+            return response.json();
+        
+        })
+    
+    .then(function(data) {
+        console.log(data);
+
+        // new display
+        viewingOptionsContainerEl.appendChild(viewingOptionsHeaderEl);
+    
+        for (var i=0; i < data.length; i++) {
+    
+            var name = data[i].name;
+            var price = data[i].price;
+            var format = data[i].format;
+            var web = data[i].web_url;
+            var type = data[i].type;
+    
+            console.log(format);
+            if (format === "HD") {
+                // this has been an issue in the past, I keep forgetting to create the element inside the for loop
+                var viewingOptionsEl = document.createElement("p");
+    
+                viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Web Link: " + web + "<br /><br />";
+    
+                viewingOptionsContainerEl.appendChild(viewingOptionsEl);
+            }
+             
+        }
+        
+        
+    })
+
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
