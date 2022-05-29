@@ -35,7 +35,12 @@ var votesEl = document.createElement("p");
 var demoRatingsHeaderContainerEl = document.querySelector("#demo-ratings-header")
 var demoRatingsHeaderEl = document.createElement("p");
 
-var viewingOptionsContainerEl = document.querySelector("#viewing-options");
+
+// displays viewing options
+var viewingOptionsHeadingContainerEl = document.querySelector("#view-options-heading");
+var viewRentOptionsHeadingContainerEl = document.querySelector("#rent-options-heading");
+var viewBuyOptionsHeadingContainerEl = document.querySelector("#buy-options-heading");
+var viewSubOptionsHeadingContainerEl = document.querySelector("#sub-options-heading");
 
 
 
@@ -266,9 +271,19 @@ var getDemographicRatings = function(imdbid) {
 
 var getViewingOptions = function(imdbid) {
 
-    var viewingOptionsHeaderEl = document.createElement("div");
+    //var viewingOptionsHeaderEl = document.createElement("div");
+    // var viewRentContainerEl = document.querySelector("#rent-options");
+    // var viewBuyContainerEl = document.querySelector("#buy-options");
+    // var viewSubContainerEl = document.querySelector("#sub-options");
+
+    var viewRentHeadingEl = document.createElement("div");
+    var viewBuyHeadingEl = document.createElement("div");
+    var viewSubHeadingEl = document.createElement("div");
     
     viewingOptionsHeaderEl.innerHTML = "<p class='title is-1'>Viewing Options</p>";
+    viewRentHeadingEl.innerHTML = "Rental Options";
+    viewBuyHeadingEl.innerHTML = "Purchase Options";
+    viewSubHeadingEl.innerHTML = "Subscription Options";
 
     fetch("https://api.watchmode.com/v1/title/" + imdbid + "/sources/?apiKey=QKlb5uqJqrs4TSLGQHRsUwAMgKndbhqCOUaIyCW0")
         .then(function(response) {
@@ -281,7 +296,12 @@ var getViewingOptions = function(imdbid) {
         console.log(data);
 
         // new display
-        viewingOptionsContainerEl.appendChild(viewingOptionsHeaderEl);
+        // viewingOptionsHeaderEl.innerHTML = "what the fuck";
+        viewingOptionsHeadingContainerEl.appendChild(viewingOptionsHeaderEl);
+        viewRentContainerEl.appendChild(viewRentHeadingEl);
+        viewBuyContainerEl.appendChild(viewBuyHeadingEl);
+        viewSubContainerEl.appendChild(viewSubHeadingEl);
+        
     
         for (var i=0; i < data.length; i++) {
     
@@ -298,6 +318,7 @@ var getViewingOptions = function(imdbid) {
                     case "rent":
                         
                         // this has been an issue in the past, I keep forgetting to create the element inside the for loop
+                        
                         var viewingOptionsEl = document.createElement("p");
                         viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Type: " + type + "<br />" + "Web Link: " + web + "<br /><br />";
                         viewingOptionsContainerEl.appendChild(viewingOptionsEl);
