@@ -4,9 +4,9 @@
     font-family: Ubuntu;
 }
 
-.main-content {
+/* .main-content {
     xheight: 715px;
-}
+} */
 
 header {
     background-color: red;
@@ -21,8 +21,6 @@ header p {
 
 header img {
     height: 200px;
-    xwidth: 200px;
-    xborder: 2px solid white;
     margin: 0 20px;
 }
 
@@ -56,19 +54,16 @@ header nav form input:focus {
     background-repeat: repeat;
     background-size: cover;
     height: 100px;
-    xborder: 1px solid black;
 }
 
-#display-card {
+/* #display-card {
     xborder: 1px solid red;
     xbox-shadow: -1px 3px 4px 5px grey;
-}
+} */
 
 .movie-info {
     /* using this class on both for the font setting, the text under the poster and the left panel */
     font-size: 1.3rem;
-    xbox-shadow: -1px 3px 4px 5px grey;
-    xpadding: 10px;
 }
 
 footer {
@@ -79,18 +74,17 @@ footer {
     font-size: .75rem;
 }
 
-.left-content, .center-content, .right-content {
+/* .left-content, .center-content, .right-content {
     xborder: 1px solid black;
 
     xbackground-color: yellow;
-}
+} */
 
 .left-content, .center-content {
     border-right: 5px solid red;
 }
 
  .demo-ratings {
-    xborder: 1px solid black;
     padding: 10px;
     font-weight: bold;
     width: 100%;

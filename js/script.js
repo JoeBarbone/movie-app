@@ -35,23 +35,25 @@ var votesEl = document.createElement("p");
 var demoRatingsHeaderContainerEl = document.querySelector("#demo-ratings-header")
 var demoRatingsHeaderEl = document.createElement("p");
 
+// Initialize existing search history
+var existingHistoryArr = "";
 
-
-
-
-
-
+// Start of functions
 var formHandler = function(event) {
+
     event.preventDefault();
     getMovie();
+
 }
 
 
 
 var getMovie = function() {
-    var requestUrl = 'https://www.omdbapi.com/?apikey=94f7ec29&t=' + document.getElementById("movie-title").value;
-    //var mt = document.getElementById("movie-title").value;
-    //requestUrl = requestUrl + mt;
+    
+    var movieTitle = document.getElementById("movie-title").value;
+
+    var requestUrl = 'https://www.omdbapi.com/?apikey=94f7ec29&t=' + movieTitle;
+    
 
     fetch(requestUrl)
         .then(function(response) {
@@ -67,24 +69,6 @@ var getMovie = function() {
             // if (data.Response === "False") {
                 // document.getElementById("movie-info").textContent = mt + " not found";
             // } else {
-                
-            
-
-            
-            
-            // document.getElementById("title").innerHTML = data.Title;
-            // document.getElementById("year").innerHTML = data.Year;
-            // document.getElementById("rating").innerHTML = data.Rated;
-            // document.getElementById("actors").innerHTML = data.Actors;
-            // document.getElementById("poster").innerHTML = "<img class='img-fluid' src='" + data.Poster + "' />";
-            // document.getElementById("plot").innerHTML = data.Plot;
-
-
-
-
-
-            //this was originally used as a box to display the info, but I have since hid it until use
-            //document.getElementById("movie-info").style.display = "none";
 
 
             moviePosterEl.innerHTML = "<img class='img-fluid' src='" + data.Poster + "' /><br /><br />";
@@ -109,6 +93,8 @@ var getMovie = function() {
 
 
             
+            // Send movie title to save data
+            saveHistory(movieTitle);
 
             getRatings(imdbid);
             document.getElementById("movie-title").value = "";
@@ -121,18 +107,17 @@ var getMovie = function() {
 
 
 var getRatings = function(imdbid) {
+
+    // Clear out any existing data
     ratingsContainerEl.innerHTML = "";
+    
     var imdbid = imdbid;
-    //ratingContainerEl = document.querySelector("#ratings");
     var ratingsEl = document.createElement("div");
     
 
 
-    // account for > 100 per day error message. if null, then display count message
-    // data.errorMessage 
-    
-
-     fetch("https://imdb-api.com/en/API/Ratings/k_e8wpwz9e/" + imdbid)
+    // imdb-api limited to 100 calls per day
+    fetch("https://imdb-api.com/en/API/Ratings/k_e8wpwz9e/" + imdbid)
          .then(function(response) {
              return response.json();
          })
@@ -170,6 +155,7 @@ var getRatings = function(imdbid) {
             ratingsContainerEl.appendChild(ratingsEl);
             getDemographicRatings(imdbid);
         })
+        
 }
 
 
@@ -240,8 +226,7 @@ var getDemographicRatings = function(imdbid) {
                 // numberFormatter.format(data.demographicAll.ages30To44.votes) + "<br />" +
                 // numberFormatter.format(data.demographicAll.agesOver45.votes) + "<br /><br />" +
                 // numberFormatter.format(data.demographicAll.allAges.votes);
-
-                
+ 
                 numberFormatter.format(agesUnder18Votes) + "<br />" +
                 numberFormatter.format(ages18To29Votes) + "<br />" +
                 numberFormatter.format(ages30To44Votes) + "<br />" +
@@ -249,8 +234,6 @@ var getDemographicRatings = function(imdbid) {
                 numberFormatter.format(allAgesVotes);
             
             votesContainerEl.appendChild(votesEl);
-
-
             
             // demoRatingsEl.innerHTML = ;
 
@@ -261,17 +244,16 @@ var getDemographicRatings = function(imdbid) {
             //console.log("Rating: " + data.ratings[i].rating + "\n" + "Percent of Votes: " + data.ratings[i].percent + "\n" + "Votes: " + data.ratings[i].votes);
 
             //}
-            
 
         })
         getViewingOptions(imdbid);
+
 }
 
 
 
 var getViewingOptions = function(imdbid) {
 
-    
     // setting IDs to display headings
     var viewOptionsHeadingContainerEl = document.querySelector("#view-options-heading");
     var viewRentOptionsHeadingContainerEl = document.querySelector("#rent-options-heading");
@@ -285,18 +267,16 @@ var getViewingOptions = function(imdbid) {
     var viewSubHeadingEl = document.createElement("p");
 
     // clear data
-    viewOptionsHeadingContainerEl.innerHTML = "";
-    viewRentOptionsHeadingContainerEl.innerHTML = "";
-    viewBuyOptionsHeadingContainerEl.innerHTML = "";
-    viewSubOptionsHeadingContainerEl.innerHTML = "";
+    // viewOptionsHeadingContainerEl.innerHTML = "";
+    // viewRentOptionsHeadingContainerEl.innerHTML = "";
+    // viewBuyOptionsHeadingContainerEl.innerHTML = "";
+    // viewSubOptionsHeadingContainerEl.innerHTML = "";
 
     // setting heading data
     viewOptionsHeadingEl.innerHTML = "Viewing Options";
     viewRentHeadingEl.innerHTML = "Rental Options";
     viewBuyHeadingEl.innerHTML = "Purchase Options";
     viewSubHeadingEl.innerHTML = "Subscription Options";
-
-
     
     // setting containers to display data
     viewRentContainerEl = document.querySelector("#rent-viewing-options");
@@ -316,8 +296,6 @@ var getViewingOptions = function(imdbid) {
     
     .then(function(data) {
         console.log(data);
-        
-        
 
         // adding data to container element to display
         viewOptionsHeadingContainerEl.appendChild(viewOptionsHeadingEl);
@@ -338,6 +316,7 @@ var getViewingOptions = function(imdbid) {
             console.log(format);
             if ((name === "Google Play" || name === "Hulu" || name === "Netflix" || name === "Amazon" || name === "YouTube" || name === "DirecTV On Demand" || name === "Spectrum On Demand") && format === "HD") {
                 
+                // This case selects the appropriate service provider logo image
                 switch (name) {
                     
                     case "Google Play":
@@ -369,14 +348,11 @@ var getViewingOptions = function(imdbid) {
                     break;
                 }
 
-
-
-
+                // This case creates the division of type
                 switch (type) {
                     case "rent":
                         
                         // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-                        
                         var viewRentEl = document.createElement("p");
                         
                         // clear data
@@ -410,7 +386,6 @@ var getViewingOptions = function(imdbid) {
                         viewSubContainerEl.appendChild(viewSubEl);
                         break;
 
-                    
                 }
             }
              
@@ -421,6 +396,35 @@ var getViewingOptions = function(imdbid) {
 }
 
 
+
+var loadHistory = function() {
+    
+    var holdArr = localStorage.getItem("search-history");
+
+    if (holdArr) {
+        existingHistoryArr = JSON.parse(localStorage.getItem("search-history"));
+
+        for (var i=0; i < existingHistoryArr.length; i++) {
+            existingHistoryArr = existingHistoryArr.push(existingHistory[i].movieTitle);
+        }
+    }
+    // figure this out
+    // read existing data into temp array, then assign to existing array
+    // check weather-app if necessary
+}
+
+
+
+var saveHistory = function(movieTitle) {
+    
+    loadHistory();
+    existingHistoryArr.push(movieTitle)
+
+}
+
+
+
+// Event Listeners
 formSubmitEl.addEventListener("submit", formHandler);
 
 
