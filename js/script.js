@@ -43,7 +43,6 @@ var demoRatingsHeaderEl = document.createElement("p");
 
 var formHandler = function(event) {
     event.preventDefault();
-
     getMovie();
 }
 
@@ -273,7 +272,6 @@ var getDemographicRatings = function(imdbid) {
 var getViewingOptions = function(imdbid) {
 
     
-
     // setting IDs to display headings
     var viewOptionsHeadingContainerEl = document.querySelector("#view-options-heading");
     var viewRentOptionsHeadingContainerEl = document.querySelector("#rent-options-heading");
@@ -286,6 +284,12 @@ var getViewingOptions = function(imdbid) {
     var viewBuyHeadingEl = document.createElement("p");
     var viewSubHeadingEl = document.createElement("p");
 
+    // clear data
+    viewOptionsHeadingContainerEl.innerHTML = "";
+    viewRentOptionsHeadingContainerEl.innerHTML = "";
+    viewBuyOptionsHeadingContainerEl.innerHTML = "";
+    viewSubOptionsHeadingContainerEl.innerHTML = "";
+
     // setting heading data
     viewOptionsHeadingEl.innerHTML = "Viewing Options";
     viewRentHeadingEl.innerHTML = "Rental Options";
@@ -295,20 +299,12 @@ var getViewingOptions = function(imdbid) {
 
     
     // setting containers to display data
-    var viewRentContainerEl = document.querySelector("#rent-viewing-options");
-    var viewBuyContainerEl = document.querySelector("#buy-viewing-options");
-    var viewSubContainerEl = document.querySelector("#sub-viewing-options");
+    viewRentContainerEl = document.querySelector("#rent-viewing-options");
+    viewBuyContainerEl = document.querySelector("#buy-viewing-options");
+    viewSubContainerEl = document.querySelector("#sub-viewing-options");
 
     
     
-    
-    
-
-
-    
-    
-
-
 
 
     fetch("https://api.watchmode.com/v1/title/" + imdbid + "/sources/?apiKey=QKlb5uqJqrs4TSLGQHRsUwAMgKndbhqCOUaIyCW0")
@@ -320,6 +316,8 @@ var getViewingOptions = function(imdbid) {
     
     .then(function(data) {
         console.log(data);
+        
+        
 
         // adding data to container element to display
         viewOptionsHeadingContainerEl.appendChild(viewOptionsHeadingEl);
@@ -342,6 +340,10 @@ var getViewingOptions = function(imdbid) {
                 
                 switch (name) {
                     
+                    case "Google Play":
+                        iconPath = "https://cdn.watchmode.com/provider_logos/googlePlay_100px.png";
+                        break;
+
                     case "Netflix":
                         iconPath = "https://cdn.watchmode.com/provider_logos/netflix_100px.png";
                         break;
@@ -376,23 +378,35 @@ var getViewingOptions = function(imdbid) {
                         // this has been an issue in the past, I keep forgetting to create the element inside the for loop
                         
                         var viewRentEl = document.createElement("p");
-                        viewRentEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + name + "&emsp;" + "Price: " + price + "&emsp;" + "Format: " + format + "&emsp;" + "Type: " + type + "&emsp;" + "<br /><br />";
+                        
+                        // clear data
+                        viewRentEl.innerHTML = "";
+
+                        viewRentEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "Price: $" + price + "&emsp;" + "Format: " + format + "&emsp;" + "<br /><br />";
                         viewRentContainerEl.appendChild(viewRentEl);
                         break;
 
                     case "buy":
-                    
+                        
                         // this has been an issue in the past, I keep forgetting to create the element inside the for loop
                         var viewBuyEl = document.createElement("p");
-                        viewBuyEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + name + "&emsp;" + "Price: " + price + "&emsp;" + "Format: " + format + "&emsp;" + "Type: " + type + "&emsp;" +  "<br /><br />";
+                        
+                        // clear data
+                        viewBuyEl.innerHTML = "";
+                        
+                        viewBuyEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "Price: $" + price + "&emsp;" + "Format: " + format + "&emsp;" +  "<br /><br />";
                         viewBuyContainerEl.appendChild(viewBuyEl);
                         break;
 
                     case "sub":
-                
+                        
                         // this has been an issue in the past, I keep forgetting to create the element inside the for loop
                         var viewSubEl = document.createElement("p");
-                        viewSubEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + name + "&emsp;" + "&emsp;" + "Format: " + format + "&emsp;" + "Type: " + type + "&emsp;" + "<br /><br />";
+                        
+                        // clear data
+                        viewSubEl.innerHTML = "";
+
+                        viewSubEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "&emsp;" + "Format: " + format + "&emsp;" + "&emsp;" + "<br /><br />";
                         viewSubContainerEl.appendChild(viewSubEl);
                         break;
 
@@ -402,71 +416,10 @@ var getViewingOptions = function(imdbid) {
              
         }
         
-        
     })
-
    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var getStreaming = function() {
-//     fetch("https://api.watchmode.com/v1/title/tt0103016/sources/?apiKey=QKlb5uqJqrs4TSLGQHRsUwAMgKndbhqCOUaIyCW0")
-//     .then(function(response) {
-    
-    
-//         return response.json();
-        
-//     })
-    
-//     .then(function(data) {
-//         console.log(data);
-    
-//         for (var i=0; i < data.length; i++) {
-    
-//             var name = data[i].name;
-//             var price = data[i].price;
-//             var format = data[i].format;
-//             var web = data[i].web_url;
-    
-//             // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-//             var viewingOptionsEl = document.createElement("span");
-    
-//             viewingOptionsEl.innerHTML = "Service Provider: " + name + "<br />" + "Price: " + price + "<br />" + "Format: " + format + "<br />" + "Web Link: " + web;
-    
-//             viewingOptionsContainerEl.appendChild(viewingOptionsEl);
-//         }
-        
-        
-//     })
-// }
 
 formSubmitEl.addEventListener("submit", formHandler);
 
