@@ -17,67 +17,31 @@
 </head>
 <body>
     <div>
-     
-        <!-- <div class="xrow xd-flex xflex-column">
-            <header class="column xcol-sm-12 xd-flex xjustify-content-between xalign-items-center">
-                <p>The Movie Hub header info here, maybe logo and/or menu if we have/need a menu</p>
-                <img src="tmh-long-logo.JPG" alt="the movie hub logo">
-                <nav>
-                    <input type="text" placeholder="enter movie title">
-                    <button>search</button>
-                </nav>
-
-            </header>
-            <div class="film-reel"></div>
-            <div class="column main-content xd-flex">
-                <div class="left-content column xcol-sm-12 xcol-md-3">
-                    <p>ratings info here</p>
-                </div>
-            
-            
-                <div class="column xcenter-content xcol xcol-sm-12 xcol-md-6">
-                    <p>main movie info here</p>
-                    <p>poster</p>
-                    <p>title</p>
-                    <p>year released</p>
-                    <p>rating</p>
-                    <p>actors</p>
-                    <p>plot</p>
-                </div>
-            
-        
-                <div id="viewing-options" class="column xright-content xcol xcol-sm-12 xcol-md-3">
-                    <h2>Viewing Options</h2>
-                    
-                </div>
-            </div>
-            <footer class="column xcol-sm-12">
-                <p>&copy;2022 The Movie Hub | Susan Pero Raffa Prezia James O'Brien and Joseph Barbone</p>
-            </footer>
-        </div> -->
 
         <div>
-            <header class="columns is-align-items-center">
+            <header class="columns is-flex is-align-items-center">
                 
                 <div class="column is-4">
                     <img src="images/tmh-long-logo.JPG" alt="the movie hub logo">
                 </div>
                 
-                <div class="column is-4">
+                <div id="header-msg" class="column is-4">
                     <p>Don't know what to watch? Check the Movie Hub! Get information, actors, ratings and even a list of available ways to watch!</p>
                 </div>
+
                 <nav class="column is-4 is-flex is-justify-content-right">
-                    <form id="input-form" class="is-flex">
+                    <form id="input-form" class="is-flex input-elements">
                         <input id="movie-title" class="my-auto" type="text" placeholder="enter movie title">
                         <button id="submit" type="submit">search</button>
                     </form>
                 </nav>
+                
 
             </header>
 
             <div class="film-reel"></div>
             
-            <div class="columns my-5 main-content is-flex column xcolumn-12 mx-auto">
+            <div class="columns xmy-5 main-content is-flex column mx-auto">
 
                 <div class="column left-content">
 
@@ -90,7 +54,7 @@
                     <!-- was set to user-ratings to bold text in "table" -->
                     <!-- bottom left-content box that displays demographics ratings -->
                     <div id="demo-ratings-header"></div>
-                    <div id="demo-ratings" class="demo-ratings is-flex is-justify-content-space-between has-text-centered xm-5">
+                    <div id="demo-ratings" class="demo-ratings is-flex is-justify-content-space-between has-text-centered">
                         
                         <div id="age-group">
 
@@ -107,11 +71,11 @@
                 </div>
             
             
-                <div class="column center-content xis-flex xis-align-items-center">
+                <div class="column center-content">
                     <!-- <div class="movie-info"></div> this isn't used, check first before deleting-->
 
                     <!-- displays poster and movie info underneath poster -->
-                    <div id="display-card" class="xis-flex xis-align-items-start">
+                    <div id="display-card">
                         <div id="poster" class="has-text-centered"></div>
                         <div id="movie-info" class="movie-info"></div>
                     </div>
@@ -121,7 +85,7 @@
                 <div class="column right-content">
                     <!-- <p class="title is-1"></p> -->
                     <div id="view-options-heading" class="title is-1">
-
+                    
                     </div>
                     
                     <p id="rent-options-heading" class="subtitle is-3"></p>
