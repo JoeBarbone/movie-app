@@ -1,6 +1,13 @@
 // used to read form click (submit button) to use "enter" as well as click
 var formSubmitEl = document.querySelector("#input-form");
 
+// used to read the click on the dropdown
+// var btnDropDownEl = document.querySelector("#btn-dropdown");
+
+// used to display dropdown
+// var dropdownContainerEl = document.querySelector("#movie-history")
+
+
 // submit button for entered movie
 var btnSubmitEl = document.querySelector("#submit");
 
@@ -35,7 +42,7 @@ var votesEl = document.createElement("p");
 var demoRatingsHeaderContainerEl = document.querySelector("#demo-ratings-header")
 var demoRatingsHeaderEl = document.createElement("p");
 
-
+var searchHistoryArr = [ ];
 
 
 
@@ -88,7 +95,8 @@ var getMovie = function() {
 
 
             moviePosterEl.innerHTML = "<img class='img-fluid' src='" + data.Poster + "' /><br /><br />";
-             
+            
+            var movieTitle = data.Title;
 
             movieInfoEl.innerHTML = 
                 "<strong>Title: </strong>" + data.Title + "<br />" +
@@ -107,15 +115,17 @@ var getMovie = function() {
             document.getElementById("ratings").style.display = "inline";
             document.getElementById("demo-ratings").style.display = "inline";
 
-
+            var movieTitle = data.Title;
             
 
             getRatings(imdbid);
+
             document.getElementById("movie-title").value = "";
             document.getElementById("movie-title").focus();
-        
+            saveHistory(movieTitle);    
     })
-  
+
+    
 }
 
 
@@ -421,6 +431,49 @@ var getViewingOptions = function(imdbid) {
 }
 
 
+var saveHistory = function(movieTitle) {
+    
+    var existingHistory = JSON.parse(localStorage.getItem("movies"));
+  
+    if (existingHistory) {
+
+        searchHistoryArr = existingHistory;
+        var isExist = searchHistoryArr.includes(movieTitle);
+    } 
+
+    if (!isExist) {
+        searchHistoryArr.push(movieTitle);
+        console.log("Search History Array: " + searchHistoryArr);
+        localStorage.setItem("movies", JSON.stringify(searchHistoryArr));
+        // createButton(searchCity);
+    }
+    
+}
+
+var loadHistory = function() {
+    btnDropDownEl.className = "dropdown is-active";
+    
+    var existingHistory = JSON.parse(localStorage.getItem("movies"));
+  
+    if (existingHistory) {
+
+        // searchHistoryArr = existingHistory;
+        // var isExist = searchHistoryArr.includes(movieTitle);
+    
+
+        for (var i=0; i < existingHistory.length; i++) {
+            var dropdownItemEl = document.createElement("p");
+            dropdownItemEl.innerHTML = existingHistory[i];
+            dropdownItemEl.className = "dropdown-item";
+            dropdownContainerEl.appendChild(dropdownItemEl); 
+        }
+        
+    }
+    
+    
+}
+
+// btnDropDownEl.addEventListener("click", loadHistory);
 formSubmitEl.addEventListener("submit", formHandler);
 
 
