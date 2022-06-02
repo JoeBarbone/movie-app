@@ -41,19 +41,55 @@
 
             <div class="film-reel"></div>
             
-            <div class="columns xmy-5 main-content is-flex column mx-auto">
+            <div class="columns main-content is-flex column mx-auto">
 
-                <div class="column left-content">
+                <div class="column left-content is-4">
 
                     <!-- displays movie title, IMDBID title and three critic ratings -->
-                    <div id="ratings" class="movie-info pl-3">
-                        
-                    </div>
+                    <div id="ratings-hardcoded-doesnt-need-id" class="movie-ratings title is-2 mb-6">Movie Ratings</div>
                 
-                    
+                    <div id="hardcoded-doesnt-need-id" class="subtitle is-4 mb-0">Critic Ratings</div>
+                    <div>
+                        <table class="table is-striped is-bordered is-fullwidth has-text-centered">
+                            <thead>
+                                <tr>
+                                    <th class="has-text-centered has-text-white is-size-5">Critic</th>
+                                    <th class="has-text-centered has-text-white is-size-5">Critic Rating</th>
+                                    <!-- <th class="has-text-centered">User Votes</th> -->
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td>IMDB</td>
+                                    <td id="imdb-rating"></td>
+                                    <!-- <td id="drUnder18-user-votes"></td> -->
+                                </tr>
+                                
+                                <tr>
+                                    <td>Spoiled Potatoes</td>
+                                    <td id="spoiled-potatoes-rating"></td>
+                                    <!-- <td id="dr1829-user-votes"></td> -->
+                                </tr>
+    
+                                <tr>
+                                    <td>The Movie DB</td>
+                                    <td id="moviedb-rating"></td>
+                                    <!-- <td id="dr3044-user-votes"></td> -->
+                                </tr>
+    
+                                <!-- <tr>
+                                    <td>Over 45</td>
+                                    <td id="drOver45-user-rating"></td>
+                                    <td id="drOver45-user-votes"></td>
+                                </tr> -->
+                            </tbody>
+    
+                        </table>
+                    </div>
                     <!-- was set to user-ratings to bold text in "table" -->
                     <!-- bottom left-content box that displays demographics ratings -->
-                    <div id="demo-ratings-header"></div>
+                    <div id="demo-ratings-header" class="subtitle is-4 pt-6 mb-0">Demographic Ratings</div>
                     <div id="demo-ratings" class="demo-ratings is-flex is-justify-content-space-between has-text-centered">
                         
                         <div id="age-group">
@@ -68,11 +104,57 @@
                     
                         </div>
                     </div>
+
+                    <table class="table is-striped is-bordered is-fullwidth has-text-centered">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered has-text-white is-size-5">Age Group</th>
+                                <th class="has-text-centered has-text-white is-size-5">User Rating</th>
+                                <th class="has-text-centered has-text-white is-size-5">User Votes</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td>Under 18</td>
+                                <td id="drUnder18-user-rating"></td>
+                                <td id="drUnder18-user-votes"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>18 to 29</td>
+                                <td id="dr1829-user-rating"></td>
+                                <td id="dr1829-user-votes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>30 to 44</td>
+                                <td id="dr3044-user-rating"></td>
+                                <td id="dr3044-user-votes"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Over 45</td>
+                                <td id="drOver45-user-rating"></td>
+                                <td id="drOver45-user-votes"></td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <th class="has-text-centered has-text-white is-size-5">Overall</th>
+                                <th id="overall-user-rating" class="has-text-centered has-text-white is-size-5"></th>
+                                <th id="overall-user-votes" class="has-text-centered has-text-white is-size-5"></th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
                 </div>
             
             
-                <div class="column center-content">
+                <div class="column center-content is-4">
                     <!-- <div class="movie-info"></div> this isn't used, check first before deleting-->
+                    <div class="title is-2 mb-6">Movie Information</div>
 
                     <!-- displays poster and movie info underneath poster -->
                     <div id="display-card">
@@ -82,27 +164,65 @@
                 </div>
             
         
-                <div class="column right-content">
+                <div class="column right-content is-4">
                     <!-- <p class="title is-1"></p> -->
-                    <div id="view-options-heading" class="title is-1">
+                    <div id="view-options-heading-hardcoded-doesnt-need-id" class="title is-2 mb-6">Viewing Options</div>
                     
-                    </div>
-                    
-                    <p id="rent-options-heading" class="subtitle is-3"></p>
-                    <div id="rent-viewing-options">
+                    <!-- <p id="rent-options-heading" class="subtitle is-3"></p> -->
+                    <!-- <div id="xrent-viewing-options"> -->
                                             
-                    </div>
+                    <!-- </div> -->
 
-                    <p id="buy-options-heading" class="subtitle is-3"></p>
-                    <div id="buy-viewing-options">
+                    <!-- <p id="buy-options-heading" class="subtitle is-3"></p> -->
+                    <!-- <div id="xbuy-viewing-options"> -->
 
-                    </div>
+                    <!-- </div> -->
 
-                    <p id="sub-options-heading" class="subtitle is-3"></p>
-                    <div id="sub-viewing-options">
+                    <!-- <p id="sub-options-heading" class="subtitle is-3"></p> -->
+                    <!-- <div id="xsub-viewing-options"> -->
 
-                    </div>
+                    <!-- </div> -->
                     
+
+                    <table class="table is-striped is-bordered is-fullwidth has-text-centered">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered has-text-white is-size-5">Service Provider</th>
+                                <th class="has-text-centered has-text-white is-size-5">Viewing Type</th>
+                                <th class="has-text-centered has-text-white is-size-5">Format</th>
+                                <th class="has-text-centered has-text-white is-size-5">Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="viewing-options">
+
+                        </tbody>
+                        
+                        <!-- <div class="title is-3">Renting Options - Joe</div>
+                        <tbody id="rent-viewing-options">
+                        
+                        </tbody>
+
+                        <div class="title is-3">Buying Options - Joe</div>
+                        <tbody id="buy-viewing-options">
+
+                        </tbody>
+
+                        <div class="title is-3">Subscription Options - Joe</div>
+                        <tbody id="sub-viewing-options">
+
+                        </tbody> -->
+
+                        <!-- <tfoot>
+                            <tr>
+                                <th class="has-text-centered is-size-5">Overall</th>
+                                <th id="overall-user-rating" class="has-text-centered is-size-5"></th>
+                                <th id="overall-user-votes" class="has-text-centered is-size-5"></th>
+                            </tr>
+                        </tfoot> -->
+
+                    </table>
+
                     
                     
                     
@@ -112,7 +232,7 @@
             <footer class="column">
                 <p>Movie API data provied by <a href="https://imdb-api.com" target="_blank">IMDB API</a> and <a href="https://omdbapi.com" target="_blank">OMDB API</a></p>
                 <p>Viewing Options Streaming Information and service provider icons provided by <a href="https://watchmode.com" target="_blank">WatchMode</a></p>
-                <p>&copy;2022 The Movie Hub | Susan Pero, Raffa Prezia, James O'Brien, and Joseph Barbone</p>
+                <p>&copy;2022 The Movie Hub | Joseph Barbone</p>
             </footer>
         </div>
     

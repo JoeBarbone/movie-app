@@ -8,6 +8,10 @@
     xheight: 715px;
 } */
 
+body {
+    background-color: ;
+}
+
 
 header {
     background-color: red;
@@ -54,6 +58,7 @@ header nav form input:focus {
     background-repeat: repeat;
     background-size: cover;
     height: 100px;
+    margin: 20px 0;
 }
 
 /* #display-card {
@@ -71,7 +76,7 @@ footer {
     color: white;
     padding-top: 10px;
     text-align: right;
-    font-size: .75rem;
+    font-size: .80rem;
 }
 
 /* .left-content, .center-content, .right-content {
@@ -81,22 +86,28 @@ footer {
 } */
 
 .left-content, .center-content {
-    border-right: 5px solid red;
+    border-right: 5px solid #D01C00;
 }
 
- .demo-ratings {
+ /* .demo-ratings {
     padding: 10px;
     font-weight: bold;
     width: 100%;
+} */
+
+.title, .subtitle, td {
+    color: #D01C00;
 }
 
-.title, .subtitle {
-    color: red;
+th  {
+    background-color: #D01C00;
+    letter-spacing: .5rem;
 }
 
-
-
-
+/* .center-content {
+    background-color: #f7bdb5;
+    color: white;
+} */
 
 
 

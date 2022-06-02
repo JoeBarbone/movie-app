@@ -72,7 +72,7 @@ var getMovie = function() {
             console.log(data);
             //console.log("data.error: " + data.Response);
             // if (data.Response === "False") {
-                // document.getElementById("movie-info").textContent = mt + " not found";
+                // document.getElementById("movie-ratings").textContent = mt + " not found";
             // } else {
                 
             
@@ -112,7 +112,7 @@ var getMovie = function() {
             var imdbid = data.imdbID;
 
             document.getElementById("display-card").style.display = "inline";
-            document.getElementById("ratings").style.display = "inline";
+            // document.getElementById("ratings").style.display = "inline";
             document.getElementById("demo-ratings").style.display = "inline";
 
             var movieTitle = data.Title;
@@ -131,7 +131,7 @@ var getMovie = function() {
 
 
 var getRatings = function(imdbid) {
-    ratingsContainerEl.innerHTML = "";
+    // ratingsContainerEl.innerHTML = "";
     var imdbid = imdbid;
     //ratingContainerEl = document.querySelector("#ratings");
     var ratingsEl = document.createElement("div");
@@ -156,6 +156,12 @@ var getRatings = function(imdbid) {
             var rt = data.rottenTomatoes;
             var tmdb = data.theMovieDb;
 
+
+            // used specifically for table
+            document.getElementById("imdb-rating").textContent = imdbrating + " / 10";
+            document.getElementById("spoiled-potatoes-rating").textContent = rt + " / 100";
+            document.getElementById("moviedb-rating").textContent = tmdb + " / 10";
+
             // set for testing
             //var title = "Killer Klowns From Outer Space";
             // var imdbid = "tt012968";
@@ -167,18 +173,25 @@ var getRatings = function(imdbid) {
 
             //console.log("<h1>Movie Information</h1><br />Title: " + title + "\n" + "IMDBID: " + imdbid + "\n" + "Spoiled Potatoes Rating: " + rt + "/100 \n" + "The Movie DB Rating: " + tmdb + "/10");
 
-            ratingsEl.innerHTML = "<p class='title is-1'>Movie Information</p>" + 
-                "<span class='pl-3 has-text-weight-bold'>Title:</span> " + title + "<br />" + 
-                "<span class='pl-3 has-text-weight-bold'>IMDB ID:</span> " + imdbid + "<br /><br /><br />" +
-                "<p class='subtitle is-3'>Critic Ratings</p>" + 
-                "<strong class='pl-3'><a href='https://www.imdb.com/title/" + imdbid + 
-                "' target='_blank'>" + "IMDB Rating:</strong> " + imdbrating + "/10</a><br />" + 
-                "<strong class='pl-3'>Spoiled Potatoes Rating:</strong> " + rt + "/100 <br />" + 
-                "<strong class='pl-3'>The Movie DB Rating:</strong> " + tmdb + "/10 <br /><br /><br />";
+
+            // this section replaced by the table data
+            // ratingsEl.innerHTML = "<p class='title is-1'>Movie Information</p>" + 
+            //     "<span class='pl-3 has-text-weight-bold'>Title:</span> " + title + "<br />" + 
+            //     "<span class='pl-3 has-text-weight-bold'>IMDB ID:</span> " + imdbid + "<br /><br /><br />" +
+            //     "<p class='subtitle is-3'>Critic Ratings</p>" + 
+            //     "<strong class='pl-3'><a href='https://www.imdb.com/title/" + imdbid + 
+            //     "' target='_blank'>" + "IMDB Rating:</strong> " + imdbrating + "/10</a><br />" + 
+            //     "<strong class='pl-3'>Spoiled Potatoes Rating:</strong> " + rt + "/100 <br />" + 
+            //     "<strong class='pl-3'>The Movie DB Rating:</strong> " + tmdb + "/10 <br /><br /><br />";
             
-            // displays ratings info in top of left-container 
-            ratingsContainerEl.appendChild(ratingsEl);
+
+
+
+            // displays ratings info in top of left-container
+            // this has been replaced with the table data
+            // ratingsContainerEl.appendChild(ratingsEl);
             getDemographicRatings(imdbid);
+
         })
 }
 
@@ -209,22 +222,26 @@ var getDemographicRatings = function(imdbid) {
             
             var numberFormatter = Intl.NumberFormat("en-US");
 
-            demoRatingsHeaderEl.innerHTML = "<p class='subtitle is-3'>Demographic Ratings</p>"
-            demoRatingsHeaderContainerEl.appendChild(demoRatingsHeaderEl);
+            // replaced by table data
+            //demoRatingsHeaderEl.innerHTML = "<p class='subtitle is-3'>Demographic Ratings</p>"
+            //demoRatingsHeaderContainerEl.appendChild(demoRatingsHeaderEl);
 
+            // replaced by table data
             // sets user ratings headings
-            ageGroupEl.innerHTML = "Age Group<br /><br />" + "Under 18<br />" + "18 to 29<br />" + "30 to 44<br />" + "Over 45<br /><br />" + "Overall";
-            ageGroupContainerEl.appendChild(ageGroupEl);
+            //ageGroupEl.innerHTML = "Age Group<br /><br />" + "Under 18<br />" + "18 to 29<br />" + "30 to 44<br />" + "Over 45<br /><br />" + "Overall";
+            //ageGroupContainerEl.appendChild(ageGroupEl);
 
+            // replaced by table data
             // sets user ratings ratings
-            userRatingEl.innerHTML = "User Rating<br /><br />" + 
-                under18 + "<br />" +  
-                ages18To29 + "<br />" + 
-                ages30To44 + "<br />" + 
-                agesOver45  + "<br /><br />" + 
-                allAges;
+            //userRatingEl.innerHTML = "User Rating<br /><br />" + 
+            //    under18 + "<br />" +  
+            //    ages18To29 + "<br />" + 
+            //    ages30To44 + "<br />" + 
+            //    agesOver45  + "<br /><br />" + 
+            //    allAges;
 
-            userRatingContainerEl.appendChild(userRatingEl);
+            // replaced by table data
+            //userRatingContainerEl.appendChild(userRatingEl);
 
             // sets user ratings votes
             // comment out for testing
@@ -234,8 +251,18 @@ var getDemographicRatings = function(imdbid) {
             var agesOver45Votes = data.demographicAll.agesOver45.votes;
             var allAgesVotes = data.demographicAll.allAges.votes;
 
-            
-            
+
+            // this section only pertains to the table
+            document.getElementById("drUnder18-user-rating").textContent = under18;
+            document.getElementById("drUnder18-user-votes").textContent = numberFormatter.format(agesUnder18Votes);
+            document.getElementById("dr1829-user-rating").textContent = ages18To29;
+            document.getElementById("dr1829-user-votes").textContent = numberFormatter.format(ages18To29Votes);
+            document.getElementById("dr3044-user-rating").textContent = ages30To44;
+            document.getElementById("dr3044-user-votes").textContent = numberFormatter.format(ages30To44Votes);
+            document.getElementById("drOver45-user-rating").textContent = agesOver45;
+            document.getElementById("drOver45-user-votes").textContent = numberFormatter.format(agesOver45Votes);
+            document.getElementById("overall-user-rating").textContent = allAges;
+            document.getElementById("overall-user-votes").textContent = numberFormatter.format(allAgesVotes);
             
             // uncomment this setup for testing
             //var agesUnder18Votes = "684";
@@ -244,21 +271,23 @@ var getDemographicRatings = function(imdbid) {
             //var agesOver45Votes = "32234";
             //var agesAllVotes = "83235";
 
-            votesEl.innerHTML = "Votes<br /><br />" + 
+            // replaced by table data
+            //votesEl.innerHTML = "Votes<br /><br />" + 
                 // numberFormatter.format(data.demographicAll.agesUnder18.votes) + "<br />" +
                 // numberFormatter.format(data.demographicAll.ages18To29.votes) + "<br />" +
                 // numberFormatter.format(data.demographicAll.ages30To44.votes) + "<br />" +
                 // numberFormatter.format(data.demographicAll.agesOver45.votes) + "<br /><br />" +
                 // numberFormatter.format(data.demographicAll.allAges.votes);
 
-                
-                numberFormatter.format(agesUnder18Votes) + "<br />" +
-                numberFormatter.format(ages18To29Votes) + "<br />" +
-                numberFormatter.format(ages30To44Votes) + "<br />" +
-                numberFormatter.format(agesOver45Votes) + "<br /><br />" +
-                numberFormatter.format(allAgesVotes);
+            // replaced by table data    
+            //    numberFormatter.format(agesUnder18Votes) + "<br />" +
+            //    numberFormatter.format(ages18To29Votes) + "<br />" +
+            //    numberFormatter.format(ages30To44Votes) + "<br />" +
+            //    numberFormatter.format(agesOver45Votes) + "<br /><br />" +
+            //    numberFormatter.format(allAgesVotes);
             
-            votesContainerEl.appendChild(votesEl);
+            // replaced by table data
+            //votesContainerEl.appendChild(votesEl);
 
 
             
@@ -283,35 +312,40 @@ var getViewingOptions = function(imdbid) {
 
     
     // setting IDs to display headings
-    var viewOptionsHeadingContainerEl = document.querySelector("#view-options-heading");
-    var viewRentOptionsHeadingContainerEl = document.querySelector("#rent-options-heading");
-    var viewBuyOptionsHeadingContainerEl = document.querySelector("#buy-options-heading");
-    var viewSubOptionsHeadingContainerEl = document.querySelector("#sub-options-heading");
+    //var viewOptionsHeadingContainerEl = document.querySelector("#view-options-heading");
+    //var viewRentOptionsHeadingContainerEl = document.querySelector("#rent-options-heading");
+    //var viewBuyOptionsHeadingContainerEl = document.querySelector("#buy-options-heading");
+    //var viewSubOptionsHeadingContainerEl = document.querySelector("#sub-options-heading");
 
     // creating elements to assign options heading title, IE: Rental, Purchase, Subscription
-    var viewOptionsHeadingEl = document.createElement("p");
-    var viewRentHeadingEl = document.createElement("p");
-    var viewBuyHeadingEl = document.createElement("p");
-    var viewSubHeadingEl = document.createElement("p");
+    //var viewOptionsHeadingEl = document.createElement("p");
+    //var viewRentHeadingEl = document.createElement("p");
+    //var viewBuyHeadingEl = document.createElement("p");
+    //var viewSubHeadingEl = document.createElement("p");
 
     // clear data
-    viewOptionsHeadingContainerEl.innerHTML = "";
-    viewRentOptionsHeadingContainerEl.innerHTML = "";
-    viewBuyOptionsHeadingContainerEl.innerHTML = "";
-    viewSubOptionsHeadingContainerEl.innerHTML = "";
+    //viewOptionsHeadingContainerEl.innerHTML = "";
+    //viewRentOptionsHeadingContainerEl.innerHTML = "";
+    //viewBuyOptionsHeadingContainerEl.innerHTML = "";
+    //viewSubOptionsHeadingContainerEl.innerHTML = "";
 
     // setting heading data
-    viewOptionsHeadingEl.innerHTML = "Viewing Options";
-    viewRentHeadingEl.innerHTML = "Rental Options";
-    viewBuyHeadingEl.innerHTML = "Purchase Options";
-    viewSubHeadingEl.innerHTML = "Subscription Options";
+    //viewOptionsHeadingEl.innerHTML = "Viewing Options";
+    //viewRentHeadingEl.innerHTML = "Rental Options";
+    //viewBuyHeadingEl.innerHTML = "Purchase Options";
+    //viewSubHeadingEl.innerHTML = "Subscription Options";
+
+    var viewOptionsContainerEl = document.querySelector("#viewing-options");
+
+
+
 
 
     
     // setting containers to display data
-    viewRentContainerEl = document.querySelector("#rent-viewing-options");
-    viewBuyContainerEl = document.querySelector("#buy-viewing-options");
-    viewSubContainerEl = document.querySelector("#sub-viewing-options");
+    //viewRentContainerEl = document.querySelector("#rent-viewing-options");
+    //viewBuyContainerEl = document.querySelector("#buy-viewing-options");
+    //viewSubContainerEl = document.querySelector("#sub-viewing-options");
 
     
     
@@ -328,12 +362,12 @@ var getViewingOptions = function(imdbid) {
         console.log(data);
         
         
-
+        // replaced with table
         // adding data to container element to display
-        viewOptionsHeadingContainerEl.appendChild(viewOptionsHeadingEl);
-        viewRentOptionsHeadingContainerEl.appendChild(viewRentHeadingEl);
-        viewBuyOptionsHeadingContainerEl.appendChild(viewBuyHeadingEl);
-        viewSubOptionsHeadingContainerEl.appendChild(viewSubHeadingEl);
+        //viewOptionsHeadingContainerEl.appendChild(viewOptionsHeadingEl);
+        //viewRentOptionsHeadingContainerEl.appendChild(viewRentHeadingEl);
+        //viewBuyOptionsHeadingContainerEl.appendChild(viewBuyHeadingEl);
+        //viewSubOptionsHeadingContainerEl.appendChild(viewSubHeadingEl);
         
         var iconPath = "";
     
@@ -381,47 +415,23 @@ var getViewingOptions = function(imdbid) {
 
 
 
-
-                switch (type) {
-                    case "rent":
-                        
-                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-                        
-                        var viewRentEl = document.createElement("p");
-                        
-                        // clear data
-                        viewRentEl.innerHTML = "";
-
-                        viewRentEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "Price: $" + price + "&emsp;" + "Format: " + format + "&emsp;" + "<br /><br />";
-                        viewRentContainerEl.appendChild(viewRentEl);
-                        break;
-
-                    case "buy":
-                        
-                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-                        var viewBuyEl = document.createElement("p");
-                        
-                        // clear data
-                        viewBuyEl.innerHTML = "";
-                        
-                        viewBuyEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "Price: $" + price + "&emsp;" + "Format: " + format + "&emsp;" +  "<br /><br />";
-                        viewBuyContainerEl.appendChild(viewBuyEl);
-                        break;
-
-                    case "sub":
-                        
-                        // this has been an issue in the past, I keep forgetting to create the element inside the for loop
-                        var viewSubEl = document.createElement("p");
-                        
-                        // clear data
-                        viewSubEl.innerHTML = "";
-
-                        viewSubEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "&emsp;" + "Format: " + format + "&emsp;" + "&emsp;" + "<br /><br />";
-                        viewSubContainerEl.appendChild(viewSubEl);
-                        break;
-
+                var viewEl = document.createElement("tr");
+                viewEl.className = "is-vcentered";
                     
-                }
+                        // clear data
+                        viewEl.innerHTML = "";
+
+                        // viewRentEl.innerHTML = "<img src='" + iconPath + "' />" + "&emsp;" + "Price: $" + price + "&emsp;" + "Format: " + format + "&emsp;" + "<br /><br />";
+                        viewEl.innerHTML = "<td><img src='" + iconPath + "' /></td>" + "<td>" + type.toUpperCase() + "</td>" + "<td>" + format + "</td>" + "<td>" + price + "</td>";
+                        viewOptionsContainerEl.appendChild(viewEl);
+
+
+
+
+
+
+
+                
             }
              
         }
