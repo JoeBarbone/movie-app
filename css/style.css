@@ -1,7 +1,11 @@
+:root {
+    --heading-text: Oswald;
+    --content-text: Montserrat;
+}
+
 * {
     padding: 0;
     margin: 0;
-    font-family: Ubuntu;
 }
 
 /* .main-content {
@@ -9,7 +13,7 @@
 } */
 
 body {
-    background-color: ;
+    font-family: var(--content-text);
 }
 
 
@@ -20,7 +24,7 @@ header {
 
 header p {
     font-size: 1.8rem;
-    color: yellow;
+    color: #FFFB35;
 }
 
 header img {
@@ -86,8 +90,19 @@ footer {
 } */
 
 .left-content, .center-content {
-    border-right: 5px solid #D01C00;
+    xborder-right: 5px solid #D01C00;
 }
+
+.left-content, .center-content, .right-content {
+    xborder: 2px solid navy;
+    padding: 10px;
+    background-color: beige;
+    box-shadow: 3px 4px 5px tan;
+}
+
+/* .center-content {
+    margin: 0 10px;
+} */
 
  /* .demo-ratings {
     padding: 10px;
@@ -95,13 +110,28 @@ footer {
     width: 100%;
 } */
 
-.title, .subtitle, td {
+.title, .subtitle, xtd, .xmovie-info {
     color: #D01C00;
+}
+
+.title, .subtitle {
+    font-family: var(--heading-text);
+}
+
+.title {
+    text-align: center;
+}
+
+.subtitle {
+    background-color: #D01C00;
+    color: white;
+    padding: 10px;
+    margin: 0;
 }
 
 th  {
     background-color: #D01C00;
-    letter-spacing: .5rem;
+    letter-spacing: .2rem;
 }
 
 /* .center-content {
@@ -109,6 +139,10 @@ th  {
     color: white;
 } */
 
+.table-scroll {
+    overflow-x: auto;
+    /* overflow-y: auto; */
+}
 
 
 
@@ -123,7 +157,7 @@ th  {
 
 
 @media screen and (max-width: 1024px) {
-    
+
 
     /* why does input-elements affect all of the other layouts */
     .input-elements {
@@ -155,17 +189,6 @@ th  {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 820px) {
     
     .main-content {
@@ -183,32 +206,11 @@ th  {
     }
     
     .left-content, .center-content {
-        border-right: none;
-        border-bottom: 5px solid red;
+        xborder-right: none;
+        xborder-bottom: 5px solid red;
     }
 
-    /* header nav form input {
-        padding: 10px 15px;
-        border-radius: 15px;
-        border: none;
-        margin-right: 10px;
-    }
-    
-    header nav form button {
-        padding: 10px 25px;
-        border-radius: 15px;
-        border: none;
-        font-weight: bold;
-        color: red;
-        margin: 10px 10px 0 0;
-    } */
 }
-
-
-
-
-
-
 
 
 
@@ -220,9 +222,7 @@ th  {
     }
 
     header {
-        /* justify-content: space-between; */
         flex-direction: column;
-        /* fix this */
         flex-wrap: wrap;
     }
 
@@ -236,24 +236,22 @@ th  {
         letter-spacing: 1px;
     }
 
-    .left-content, .center-content {
-        border-right: none;
-        border-bottom: 5px solid red;
+    .left-content {
+        margin: 20px 0;
     }
 
-    /* header nav form input {
-        padding: 15px 20px;
-        border-radius: 15px 0 0 15px;
-        border: none;
+    .center-content {
+        /* margin: 20px 0; */
+        order: -1;
     }
-    
-    header nav form button {
-        padding: 15px 25px;
-        border-radius: 0 15px 15px 0;
-        border: none;
-        font-weight: bold;
-        color: red;
-    } */
+
+    .right-content {
+        margin: 0;
+    }
+
+    th {
+        letter-spacing: 0;
+    }
 
 }
 

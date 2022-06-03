@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oswald&display=swap" rel="stylesheet">
 
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
@@ -41,20 +44,20 @@
 
             <div class="film-reel"></div>
             
-            <div class="columns main-content is-flex column mx-auto">
+            <div class="columns main-content is-11 column mx-auto">
 
                 <div class="column left-content is-4">
 
                     <!-- displays movie title, IMDBID title and three critic ratings -->
-                    <div id="ratings-hardcoded-doesnt-need-id" class="movie-ratings title is-2 mb-6">Movie Ratings</div>
+                    <div id="ratings-hardcoded-doesnt-need-id" class="movie-ratings title is-1 mb-6">Movie Ratings</div>
                 
-                    <div id="hardcoded-doesnt-need-id" class="subtitle is-4 mb-0">Critic Ratings</div>
+                    <div id="hardcoded-doesnt-need-id" class="subtitle is-3 mb-0">Critic Ratings</div>
                     <div>
                         <table class="table is-striped is-bordered is-fullwidth has-text-centered">
                             <thead>
                                 <tr>
                                     <th class="has-text-centered has-text-white is-size-5">Critic</th>
-                                    <th class="has-text-centered has-text-white is-size-5">Critic Rating</th>
+                                    <th class="has-text-centered has-text-white is-size-5">Rating</th>
                                     <!-- <th class="has-text-centered">User Votes</th> -->
                                 </tr>
                             </thead>
@@ -89,7 +92,7 @@
                     </div>
                     <!-- was set to user-ratings to bold text in "table" -->
                     <!-- bottom left-content box that displays demographics ratings -->
-                    <div id="demo-ratings-header" class="subtitle is-4 pt-6 mb-0">Demographic Ratings</div>
+                    <div id="demo-ratings-header" class="subtitle is-3 mt-6 mb-0">Demographic Ratings</div>
                     <div id="demo-ratings" class="demo-ratings is-flex is-justify-content-space-between has-text-centered">
                         
                         <div id="age-group">
@@ -152,21 +155,21 @@
                 </div>
             
             
-                <div class="column center-content is-4">
+                <div class="column center-content is-4 mx-3">
                     <!-- <div class="movie-info"></div> this isn't used, check first before deleting-->
-                    <div class="title is-2 mb-6">Movie Information</div>
+                    <div class="title is-1 mb-6">Movie Information</div>
 
                     <!-- displays poster and movie info underneath poster -->
                     <div id="display-card">
                         <div id="poster" class="has-text-centered"></div>
-                        <div id="movie-info" class="movie-info"></div>
+                        <div id="movie-info" class="movie-info  px-6"></div>
                     </div>
                 </div>
             
         
                 <div class="column right-content is-4">
                     <!-- <p class="title is-1"></p> -->
-                    <div id="view-options-heading-hardcoded-doesnt-need-id" class="title is-2 mb-6">Viewing Options</div>
+                    <div id="view-options-heading-hardcoded-doesnt-need-id" class="title is-1 mb-6">Viewing Options</div>
                     
                     <!-- <p id="rent-options-heading" class="subtitle is-3"></p> -->
                     <!-- <div id="xrent-viewing-options"> -->
@@ -183,8 +186,9 @@
 
                     <!-- </div> -->
                     
-
+                    <div class="table-scroll">
                     <table class="table is-striped is-bordered is-fullwidth has-text-centered">
+                        
                         <thead>
                             <tr>
                                 <th class="has-text-centered has-text-white is-size-5">Service Provider</th>
@@ -197,32 +201,9 @@
                         <tbody id="viewing-options">
 
                         </tbody>
-                        
-                        <!-- <div class="title is-3">Renting Options - Joe</div>
-                        <tbody id="rent-viewing-options">
-                        
-                        </tbody>
-
-                        <div class="title is-3">Buying Options - Joe</div>
-                        <tbody id="buy-viewing-options">
-
-                        </tbody>
-
-                        <div class="title is-3">Subscription Options - Joe</div>
-                        <tbody id="sub-viewing-options">
-
-                        </tbody> -->
-
-                        <!-- <tfoot>
-                            <tr>
-                                <th class="has-text-centered is-size-5">Overall</th>
-                                <th id="overall-user-rating" class="has-text-centered is-size-5"></th>
-                                <th id="overall-user-votes" class="has-text-centered is-size-5"></th>
-                            </tr>
-                        </tfoot> -->
 
                     </table>
-
+                    </div>
                     
                     
                     
