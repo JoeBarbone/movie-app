@@ -129,6 +129,10 @@ footer {
     margin: 0;
 }
 
+td {
+    font-weight: bold;
+}
+
 th  {
     background-color: #D01C00;
     letter-spacing: .2rem;
