@@ -38,6 +38,7 @@ The following languages/technologies were used in the creation of this project:
 * JavaScript
 * APIs
 * LocalStorage within browser
+* Logo Shop iPhone App
 
 ## Acknowledgements
 [OMDB API](https://omdbapi.com) - Provides Poster, Title, Year, Rated, Actors, Plot  
